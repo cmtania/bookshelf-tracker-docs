@@ -19,7 +19,7 @@ npm run preview    # serve the built dist/ to check it
   - `Sections.jsx`:
     - benefit cards, then feature rows that alternate with phone mockups;
     - a bento grid: room colors, share your shelf, categories, privacy;
-    - how it works, pricing (Free vs one-time Unlock) and the FAQ accordion;
+    - how it works, pricing (Starter free, Pro Monthly, Pro Lifetime) and the FAQ accordion;
     - the final call to action and the footer.
   - `Phone.jsx`: the iPhone frame and drawn app screens (shelf, pulled-out book, log reading, calendar).
   - `Bookcase.jsx`: the bookcase drawing, with the app's real proportions.
