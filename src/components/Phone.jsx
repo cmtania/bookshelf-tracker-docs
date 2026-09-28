@@ -1,17 +1,17 @@
 import {
-  BookMarked,
-  CalendarDays,
-  ChevronDown,
+  BookBookmark,
+  CalendarDots,
+  CaretDown,
   Flame,
-  LayoutGrid,
-  Library,
-  Paintbrush,
-  Pencil,
+  SquaresFour,
+  Books,
+  PaintBrush,
+  PencilSimple,
   Plus,
-  Settings,
-  Share2,
+  GearSix,
+  Export,
   X,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 
 import { SCREENSHOTS } from '../config.js';
 import { useImageExists } from '../hooks.js';
@@ -44,13 +44,13 @@ function StatusBar({ light = false }) {
 }
 
 function TabBar({ active = 0 }) {
-  const tabs = [Library, LayoutGrid, CalendarDays, Settings];
+  const tabs = [Books, SquaresFour, CalendarDots, GearSix];
   const names = ['Bookshelf', 'Categories', 'Calendar', 'Settings'];
   return (
     <div className="tabbar">
       {tabs.map((Icon, i) => (
         <span key={names[i]} className={i === active ? 'on' : ''}>
-          <Icon size={13} strokeWidth={2.2} />
+          <Icon size={13} weight="fill" />
           <small>{names[i]}</small>
         </span>
       ))}
@@ -78,12 +78,12 @@ function ShelfScreen() {
           <div>
             <b>My Bookshelf</b>
             <span className="with-icon">
-              24 books · <Flame size={9} className="flame" /> 12-day streak
+              24 books · <Flame weight="fill" size={9} className="flame" /> 12-day streak
             </span>
           </div>
           <div className="glass-buttons">
-            <span className="glass-circle"><Paintbrush size={11} /></span>
-            <span className="glass-circle"><Share2 size={11} /></span>
+            <span className="glass-circle"><PaintBrush size={11} /></span>
+            <span className="glass-circle"><Export size={11} /></span>
           </div>
         </div>
         <Bookcase className="room-bookcase" />
@@ -124,13 +124,13 @@ function BookScreen() {
           <b>The Quiet Orchard</b>
           <span>M. Alcaraz</span>
           <div className="book-card-meta">
-            <span><BookMarked size={9} /> Page 212 of 384</span>
-            <span className="orange"><Flame size={9} /> 6-day streak</span>
+            <span><BookBookmark size={9} /> Page 212 of 384</span>
+            <span className="orange"><Flame weight="fill" size={9} /> 6-day streak</span>
           </div>
         </div>
         <div className="book-actions">
           <span className="btn-prom"><Plus size={10} /> Log reading</span>
-          <span className="btn-glass"><Pencil size={10} /> Edit</span>
+          <span className="btn-glass"><PencilSimple size={10} /> Edit</span>
         </div>
       </Room>
     </div>
@@ -162,7 +162,7 @@ function LogScreen() {
         </div>
       </div>
       <div className="list-card row">
-        <Flame size={16} className="flame" />
+        <Flame weight="fill" size={16} className="flame" />
         <div className="grow">
           <b>6-day streak</b>
           <span>Read today</span>
@@ -195,12 +195,12 @@ function CalendarScreen() {
       <StatusBar />
       <div className="sheet-top big"><b>Calendar</b></div>
       <div className="list-card stats">
-        <span><BookMarked size={10} className="accent" /> <b>186</b> pages this week</span>
+        <span><BookBookmark size={10} className="accent" /> <b>186</b> pages this week</span>
         <i />
-        <span><Flame size={10} className="flame" /> <b>12</b> day streak</span>
+        <span><Flame weight="fill" size={10} className="flame" /> <b>12</b> day streak</span>
       </div>
       <div className="list-card cal">
-        <div className="cal-head">This week <ChevronDown size={9} /></div>
+        <div className="cal-head">This week <CaretDown size={9} /></div>
         <div className="cal-grid">
           {days.map(([l, d, dots]) => (
             <div key={d} className={`cal-day ${d === 26 ? 'sel' : ''}`}>
