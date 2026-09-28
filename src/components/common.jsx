@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Smartphone } from 'lucide-react';
+import { DeviceMobile } from '@phosphor-icons/react';
 
 import { APP_STORE_URL, SPRING } from '../config.js';
 
@@ -33,7 +33,7 @@ export function SectionHead({ eyebrow, title, body, center = true }) {
 export function AppStoreButton({ variant = 'dark', label = 'Download on the App Store' }) {
   return (
     <a className={`btn btn-${variant}`} href={APP_STORE_URL} target="_blank" rel="noopener">
-      <Smartphone size={18} strokeWidth={2.2} />
+      <DeviceMobile size={18} weight="bold" />
       <span>{label}</span>
     </a>
   );
