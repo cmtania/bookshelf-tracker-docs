@@ -20,7 +20,7 @@ export function Benefits() {
         <div className="benefit-grid">
           {BENEFITS.map(({ Icon, title, body }, i) => (
             <Reveal key={title} className="card benefit" delay={i * 0.06}>
-              <span className="icon-tile"><Icon size={22} /></span>
+              <span className="icon-tile"><Icon size={26} /></span>
               <h3>{title}</h3>
               <p>{body}</p>
             </Reveal>
@@ -44,7 +44,7 @@ export function Features() {
               <p>{feature.body}</p>
               <ul className="checks">
                 {feature.points.map((point) => (
-                  <li key={point}><Check size={16} weight="bold" />{point}</li>
+                  <li key={point}><Check size={19} weight="bold" />{point}</li>
                 ))}
               </ul>
             </Reveal>
@@ -68,7 +68,7 @@ export function Bento() {
           {BENTO.map((item, i) => (
             <Reveal key={item.id} className={`card bento-card bento-${item.id}`} delay={i * 0.06}>
               <div className="bento-text">
-                <span className="icon-tile small"><item.Icon size={18} /></span>
+                <span className="icon-tile small"><item.Icon size={21} /></span>
                 <h3>
                   {item.title}
                   {item.pro && <span className="pro">PRO</span>}
@@ -135,7 +135,7 @@ function BentoArt({ item }) {
   return (
     <ul className="privacy-points">
       {item.points.map(([Icon, text]) => (
-        <li key={text}><Icon size={16} /> {text}</li>
+        <li key={text}><Icon size={19} /> {text}</li>
       ))}
     </ul>
   );
@@ -150,7 +150,7 @@ export function Steps() {
           {STEPS.map(({ Icon, title, body }, i) => (
             <Reveal key={title} as="li" className="card step" delay={i * 0.08}>
               <span className="step-number">{i + 1}</span>
-              <span className="icon-tile"><Icon size={22} /></span>
+              <span className="icon-tile"><Icon size={26} /></span>
               <h3>{title}</h3>
               <p>{body}</p>
             </Reveal>
@@ -178,7 +178,7 @@ export function Pricing() {
             <Reveal key={plan.name} className={`card plan ${plan.featured ? 'plan-featured' : ''}`} delay={i * 0.08}>
               <div className="plan-head">
                 <h3>{plan.name}</h3>
-                {plan.featured && <span className="pill pill-on-dark"><plan.Icon size={13} /> Best value</span>}
+                {plan.featured && <span className="pill pill-on-dark"><plan.Icon size={15} /> Best value</span>}
               </div>
               <div className="plan-price">
                 {local ? (
@@ -195,7 +195,7 @@ export function Pricing() {
               <p>{plan.body}</p>
               <ul className="checks">
                 {plan.features.map((feature) => (
-                  <li key={feature}><Check size={16} weight="bold" />{feature}</li>
+                  <li key={feature}><Check size={19} weight="bold" />{feature}</li>
                 ))}
               </ul>
               <AppStoreButton variant={plan.featured ? 'orange' : 'dark'} label={plan.cta} />
@@ -226,7 +226,7 @@ export function Faq() {
               <Reveal key={q} className={`card faq-item ${isOpen ? 'open' : ''}`} delay={i * 0.04}>
                 <button aria-expanded={isOpen} onClick={() => setOpen(isOpen ? -1 : i)}>
                   <span>{q}</span>
-                  <CaretDown size={20} className="faq-chevron" />
+                  <CaretDown size={23} className="faq-chevron" />
                 </button>
                 <AnimatePresence initial={false}>
                   {isOpen && (
