@@ -110,7 +110,7 @@ export const BENTO = [
     id: 'privacy',
     Icon: LockKey,
     title: 'Private by design',
-    body: 'No account and no server. Your library stays on your iPhone.',
+    body: 'No account and no server. Your library stays on your device.',
     points: [
       [LockKey, 'No sign-in'],
       [EyeSlash, 'No ads or tracking'],
@@ -220,15 +220,15 @@ export const FAQS = [
   },
   {
     q: 'Do I need an account?',
-    a: 'No. Shelfie has no accounts and no servers. Everything you add stays on your iPhone.',
+    a: 'No. Shelfie has no accounts and no servers. Everything you add stays on your device.',
   },
   {
     q: 'What happens when a shelf is full?',
     a: 'Extra books lie flat in a stack at the end of the shelf, and when even that is full the label shows how many more there are, like “Novels · +3”.',
   },
   {
-    q: 'Which iPhones are supported?',
-    a: 'Any iPhone running iOS 26 or later.',
+    q: 'Which devices are supported?',
+    a: 'Any iPhone with iOS 26 or later, and any iPad with iPadOS 26 or later. On iPad it works in portrait, landscape and Split View. Each device keeps its own library (there is no syncing yet), and Shelfie Pro works on both with the same Apple ID.',
   },
 ];
 
