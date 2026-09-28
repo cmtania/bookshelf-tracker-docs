@@ -65,15 +65,15 @@ export const FEATURES = [
     eyebrow: 'Your library',
     title: 'Every book on a shelf you can actually see',
     body: 'Your books stand in a real 3D bookcase, one compartment per category. Thick books look thick, the one you’re reading sticks out with a ribbon, and your to-read pile lies flat, just like at home.',
-    points: ['Up to 10 categories, one per compartment', 'Tap a shelf to zoom in, tap a spine to pull the book out', 'Book thickness follows the page count'],
+    points: ['Up to 10 categories, one per compartment', 'Tap a shelf or pinch to zoom in, tap a spine to pull the book out', 'Book thickness follows the page count'],
     screen: 'shelf',
   },
   {
     id: 'book',
     eyebrow: 'Pick it up',
     title: 'Pull a book out and it turns to face you',
-    body: 'Tap a spine and the book slides off the shelf, flies up and shows its cover. Log reading or edit it right there, then tap away and it slides back into its place.',
-    points: ['Page progress and streak at a glance', 'Drag to turn the book around', 'Log reading keeps your notes and sessions together'],
+    body: 'Tap a spine and the book slides off the shelf with a soft sound, flies up and shows its cover. Log reading or edit it right there, then tap away and it slides back into its place.',
+    points: ['Page progress and streak at a glance', 'Drag to turn the book around', 'Every logged session gets a little celebration'],
     screen: 'book',
   },
   {
@@ -229,6 +229,10 @@ export const FAQS = [
   {
     q: 'Which devices are supported?',
     a: 'Any iPhone with iOS 26 or later, and any iPad with iPadOS 26 or later. On iPad it works in portrait, landscape and Split View. Each device keeps its own library (there is no syncing yet), and Shelfie Pro works on both with the same Apple ID.',
+  },
+  {
+    q: 'Is there a dark mode?',
+    a: 'Yes. In Settings → Appearance, choose System, Light or Dark. The 3D room keeps its own colors, which you can change with Shelfie Pro.',
   },
 ];
 
