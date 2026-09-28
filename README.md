@@ -1,6 +1,6 @@
 # Shelfie marketing/docs site
 
-A Vite + React landing page for Shelfie, the iPhone reading tracker with a 3D bookshelf, plus static **Support**, **Privacy Policy** and **Terms of Service** pages. It's deployed to GitHub Pages by `.github/workflows/deploy.yml` on every push to `main`.
+A Vite + React landing page for Shelfie, the iPhone and iPad reading tracker with a 3D bookshelf, plus static **Support**, **Privacy Policy** and **Terms of Service** pages. It's deployed to GitHub Pages by `.github/workflows/deploy.yml` on every push to `main`.
 
 ## Run it
 
