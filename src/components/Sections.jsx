@@ -278,7 +278,7 @@ export function Footer() {
             <img src="assets/logo.svg" alt="" width="32" height="29" />
             <span>Shelfie</span>
           </a>
-          <p>Your reading, on a 3D bookshelf. For iPhone.</p>
+          <p>Your reading, on a 3D bookshelf. For iPhone and iPad.</p>
         </div>
         <div className="footer-cols">
           <div>
@@ -302,7 +302,7 @@ export function Footer() {
       </div>
       <div className="wrap footer-base">
         <span>© {new Date().getFullYear()} Shelfie. All rights reserved.</span>
-        <span>Apple, iPhone and App Store are trademarks of Apple Inc.</span>
+        <span>Apple, iPhone, iPad and App Store are trademarks of Apple Inc.</span>
       </div>
     </footer>
   );
