@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { Menu, X } from 'lucide-react';
+import { List, X } from '@phosphor-icons/react';
 
 import { APP_STORE_URL, NAV, SPRING } from '../config.js';
 import { scrollToId } from '../smooth-scroll.js';
@@ -38,7 +38,7 @@ export function Nav() {
           Download
         </a>
         <button className="nav-toggle" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen((v) => !v)}>
-          {open ? <X size={22} /> : <Menu size={22} />}
+          {open ? <X size={22} /> : <List size={22} />}
         </button>
       </div>
       <AnimatePresence>
