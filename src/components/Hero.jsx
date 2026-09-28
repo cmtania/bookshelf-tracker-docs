@@ -18,7 +18,7 @@ export function Hero() {
           transition={SPRING}
         >
           <span className="pill">
-            <Sparkle size={14} /> New for iPhone
+            <Sparkle size={14} /> New for iPhone and iPad
           </span>
           <h1>
             Your reading life, on a <span className="mark">real 3D bookshelf</span>
