@@ -38,7 +38,7 @@ export function Nav() {
           Download
         </a>
         <button className="nav-toggle" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen((v) => !v)}>
-          {open ? <X size={22} /> : <List size={22} />}
+          {open ? <X size={26} /> : <List size={26} />}
         </button>
       </div>
       <AnimatePresence>
