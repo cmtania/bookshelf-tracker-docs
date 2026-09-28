@@ -32,7 +32,7 @@ npm run preview    # serve the built dist/ to check it
 Packages:
 - `motion`: the entrance animations and the FAQ accordion.
 - `lenis`: smooth scrolling.
-- `lucide-react`: the icons. The static pages use inline Lucide SVGs, and there are no emoji anywhere.
+- `@phosphor-icons/react`: the icons ([Phosphor](https://phosphoricons.com), MIT), the same set as the app. The static pages use inline Phosphor SVGs, and there are no emoji anywhere.
 - `@fontsource-variable/plus-jakarta-sans`: the font, self-hosted, so no Google Fonts requests.
 
 All motion respects the Reduce Motion setting.
