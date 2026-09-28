@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight, BookMarked, Flame, Sparkles } from 'lucide-react';
+import { ArrowRight, BookBookmark, Flame, Sparkle } from '@phosphor-icons/react';
 
 import { SPRING } from '../config.js';
 import { scrollToId } from '../smooth-scroll.js';
@@ -18,7 +18,7 @@ export function Hero() {
           transition={SPRING}
         >
           <span className="pill">
-            <Sparkles size={14} /> New for iPhone
+            <Sparkle size={14} /> New for iPhone
           </span>
           <h1>
             Your reading life, on a <span className="mark">real 3D bookshelf</span>
@@ -61,7 +61,7 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ ...SPRING, delay: 0.35 }}
           >
-            <span className="float-icon orange"><Flame size={18} /></span>
+            <span className="float-icon orange"><Flame weight="fill" size={18} /></span>
             <div>
               <b>12-day streak</b>
               <span>Keep it going tonight</span>
@@ -73,7 +73,7 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ ...SPRING, delay: 0.5 }}
           >
-            <span className="float-icon teal"><BookMarked size={18} /></span>
+            <span className="float-icon teal"><BookBookmark size={18} /></span>
             <div>
               <b>+32 pages</b>
               <span>The Quiet Orchard · p. 212</span>
