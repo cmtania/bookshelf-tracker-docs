@@ -1,18 +1,18 @@
 import {
-  BellRing,
+  BellRinging,
   BookOpen,
-  EyeOff,
+  EyeSlash,
   Flame,
-  LayoutGrid,
-  LockKeyhole,
-  NotebookPen,
-  Paintbrush,
-  Share2,
-  Smartphone,
-  Sparkles,
+  SquaresFour,
+  LockKey,
+  NotePencil,
+  PaintBrush,
+  Export,
+  DeviceMobile,
+  Sparkle,
   Timer,
-  WifiOff,
-} from 'lucide-react';
+  WifiSlash,
+} from '@phosphor-icons/react';
 
 // TODO at launch: the real App Store URL.
 export const APP_STORE_URL = 'https://apps.apple.com/app/shelfie/id0000000000';
@@ -48,12 +48,12 @@ export const BENEFITS = [
     body: 'Each book keeps its own reading streak, plus one for all your reading, so you always know what to pick up.',
   },
   {
-    Icon: BellRing,
+    Icon: BellRinging,
     title: 'Gentle reminders',
     body: 'A daily nudge at your time, and an evening heads-up when a streak is about to slip. Never more.',
   },
   {
-    Icon: NotebookPen,
+    Icon: NotePencil,
     title: 'Notes by the page',
     body: 'Save quotes and thoughts with the page they came from, right next to your reading sessions.',
   },
@@ -89,40 +89,40 @@ export const FEATURES = [
 export const BENTO = [
   {
     id: 'colors',
-    Icon: Paintbrush,
+    Icon: PaintBrush,
     title: 'Make the room yours',
     body: 'Pick colors for the bookcase, walls and floor, including premium lacquers, brass and herringbone or marble floors.',
     pro: true,
   },
   {
     id: 'share',
-    Icon: Share2,
+    Icon: Export,
     title: 'Share your shelf',
     body: 'Turn your bookcase into a clean picture for Instagram or Messages, with your books and streak.',
   },
   {
     id: 'categories',
-    Icon: LayoutGrid,
+    Icon: SquaresFour,
     title: 'Categories with the numbers that matter',
     body: 'Books, pages read, what you’re reading now and a streak for every category, all in one place.',
   },
   {
     id: 'privacy',
-    Icon: LockKeyhole,
+    Icon: LockKey,
     title: 'Private by design',
     body: 'No account and no server. Your library stays on your iPhone.',
     points: [
-      [LockKeyhole, 'No sign-in'],
-      [EyeOff, 'No ads or tracking'],
-      [WifiOff, 'Works offline'],
-      [Smartphone, 'Data stays on device'],
+      [LockKey, 'No sign-in'],
+      [EyeSlash, 'No ads or tracking'],
+      [WifiSlash, 'Works offline'],
+      [DeviceMobile, 'Data stays on device'],
     ],
   },
 ];
 
 export const STEPS = [
   {
-    Icon: LayoutGrid,
+    Icon: SquaresFour,
     title: 'Name your shelves',
     body: 'Start with three free categories and rename them to fit how you read: novels, study, comics, anything.',
   },
@@ -200,7 +200,7 @@ export const PLANS = [
     ],
     cta: 'Get Lifetime',
     featured: true,
-    Icon: Sparkles,
+    Icon: Sparkle,
   },
 ];
 
