@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { List, X } from '@phosphor-icons/react';
+import { AppleLogo, List, X } from '@phosphor-icons/react';
 
 import { APP_STORE_URL, NAV, SPRING } from '../config.js';
 import { scrollToId } from '../smooth-scroll.js';
@@ -35,6 +35,7 @@ export function Nav() {
           ))}
         </nav>
         <a className="btn btn-dark btn-small nav-cta" href={APP_STORE_URL} target="_blank" rel="noopener">
+          <AppleLogo size={18} weight="fill" />
           Download
         </a>
         <button className="nav-toggle" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen((v) => !v)}>
@@ -54,7 +55,7 @@ export function Nav() {
             {NAV.map(([label, id]) => (
               <a key={id} href={`#${id}`} onClick={go(id)}>{label}</a>
             ))}
-            <a className="btn btn-dark" href={APP_STORE_URL} target="_blank" rel="noopener">Download on the App Store</a>
+            <a className="btn btn-dark" href={APP_STORE_URL} target="_blank" rel="noopener"><AppleLogo size={21} weight="fill" /> Download on the App Store</a>
           </motion.nav>
         )}
       </AnimatePresence>
