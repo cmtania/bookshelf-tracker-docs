@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { Check, ChevronDown } from 'lucide-react';
+import { Check, CaretDown } from '@phosphor-icons/react';
 
 import { BENEFITS, BENTO, FAQS, FEATURES, PLANS, SPRING, STEPS, SUPPORT_EMAIL, SUPPORT_NAME } from '../config.js';
 import { useLocalPrices } from '../hooks.js';
@@ -44,7 +44,7 @@ export function Features() {
               <p>{feature.body}</p>
               <ul className="checks">
                 {feature.points.map((point) => (
-                  <li key={point}><Check size={16} strokeWidth={2.6} />{point}</li>
+                  <li key={point}><Check size={16} weight="bold" />{point}</li>
                 ))}
               </ul>
             </Reveal>
@@ -195,7 +195,7 @@ export function Pricing() {
               <p>{plan.body}</p>
               <ul className="checks">
                 {plan.features.map((feature) => (
-                  <li key={feature}><Check size={16} strokeWidth={2.6} />{feature}</li>
+                  <li key={feature}><Check size={16} weight="bold" />{feature}</li>
                 ))}
               </ul>
               <AppStoreButton variant={plan.featured ? 'orange' : 'dark'} label={plan.cta} />
@@ -226,7 +226,7 @@ export function Faq() {
               <Reveal key={q} className={`card faq-item ${isOpen ? 'open' : ''}`} delay={i * 0.04}>
                 <button aria-expanded={isOpen} onClick={() => setOpen(isOpen ? -1 : i)}>
                   <span>{q}</span>
-                  <ChevronDown size={20} className="faq-chevron" />
+                  <CaretDown size={20} className="faq-chevron" />
                 </button>
                 <AnimatePresence initial={false}>
                   {isOpen && (
