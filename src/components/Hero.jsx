@@ -18,7 +18,7 @@ export function Hero() {
           transition={SPRING}
         >
           <span className="pill">
-            <Sparkle size={14} /> New for iPhone and iPad
+            <Sparkle size={16} /> New for iPhone and iPad
           </span>
           <h1>
             Your reading life, on a <span className="mark">real 3D bookshelf</span>
@@ -37,7 +37,7 @@ export function Hero() {
                 scrollToId('features');
               }}
             >
-              Explore features <ArrowRight size={16} />
+              Explore features <ArrowRight size={19} />
             </a>
           </div>
           <ul className="hero-facts">
@@ -61,7 +61,7 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ ...SPRING, delay: 0.35 }}
           >
-            <span className="float-icon orange"><Flame weight="fill" size={18} /></span>
+            <span className="float-icon orange"><Flame weight="fill" size={21} /></span>
             <div>
               <b>12-day streak</b>
               <span>Keep it going tonight</span>
@@ -73,7 +73,7 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ ...SPRING, delay: 0.5 }}
           >
-            <span className="float-icon teal"><BookBookmark size={18} /></span>
+            <span className="float-icon teal"><BookBookmark size={21} /></span>
             <div>
               <b>+32 pages</b>
               <span>The Quiet Orchard · p. 212</span>
