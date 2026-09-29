@@ -45,22 +45,3 @@ export function useLocalPrices() {
   return prices;
 }
 
-/** Whether an image URL loads: lets a real screenshot replace the drawn screen. */
-export function useImageExists(src) {
-  const [ok, setOk] = useState(false);
-  useEffect(() => {
-    if (!src) {
-      setOk(false);
-      return;
-    }
-    let alive = true;
-    const img = new Image();
-    img.onload = () => alive && setOk(true);
-    img.onerror = () => alive && setOk(false);
-    img.src = src;
-    return () => {
-      alive = false;
-    };
-  }, [src]);
-  return ok;
-}
