@@ -1,26 +1,41 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { Check, CaretDown } from '@phosphor-icons/react';
+import { CaretDown, Check } from '@phosphor-icons/react';
 
-import { BENEFITS, BENTO, FAQS, FEATURES, PLANS, SPRING, STEPS, SUPPORT_EMAIL, SUPPORT_NAME } from '../config.js';
+import { BENEFITS, BENTO, FAQS, PLANS, RIBBON, SPRING, STATS, SUPPORT_EMAIL, SUPPORT_NAME } from '../config.js';
 import { useLocalPrices } from '../hooks.js';
 import { Bookcase } from './Bookcase.jsx';
 import { AppStoreButton, Reveal, SectionHead } from './common.jsx';
-import { Phone } from './Phone.jsx';
+import { IPhone } from './Device.jsx';
+
+/** An endless, slow ribbon of what's inside. The copy is doubled so the loop has no seam. */
+export function Ribbon() {
+  const items = RIBBON.map(([Icon, text]) => (
+    <li key={text}><Icon size={20} weight="duotone" />{text}</li>
+  ));
+  return (
+    <div className="ribbon" aria-label="What’s inside Shelfie">
+      <div className="ribbon-track">
+        <ul>{items}</ul>
+        <ul aria-hidden="true">{items}</ul>
+      </div>
+    </div>
+  );
+}
 
 export function Benefits() {
   return (
     <section className="section" id="benefits">
       <div className="wrap">
         <SectionHead
-          eyebrow="Why Shelfie"
-          title="A reading tracker that feels like a bookshelf"
+          eyebrow="The habit, handled"
+          title={<>Built for the book <span className="serif">on your nightstand.</span></>}
           body="Everything a reading habit needs, without spreadsheets or long forms."
         />
         <div className="benefit-grid">
           {BENEFITS.map(({ Icon, title, body }, i) => (
-            <Reveal key={title} className="card benefit" delay={i * 0.06}>
-              <span className="icon-tile"><Icon size={26} /></span>
+            <Reveal key={title} className="benefit" delay={i * 0.06}>
+              <span className="icon-tile"><Icon size={26} weight="duotone" /></span>
               <h3>{title}</h3>
               <p>{body}</p>
             </Reveal>
@@ -31,28 +46,15 @@ export function Benefits() {
   );
 }
 
-export function Features() {
+export function Stats() {
   return (
-    <section className="section section-tint" id="features">
-      <div className="wrap">
-        <SectionHead eyebrow="Features" title="Built around the books you’re reading" />
-        {FEATURES.map((feature, i) => (
-          <div key={feature.id} className={`feature feature-${i} ${i % 2 ? 'flip' : ''}`}>
-            <Reveal className="feature-copy">
-              <span className="eyebrow">{feature.eyebrow}</span>
-              <h3>{feature.title}</h3>
-              <p>{feature.body}</p>
-              <ul className="checks">
-                {feature.points.map((point) => (
-                  <li key={point}><Check size={19} weight="bold" />{point}</li>
-                ))}
-              </ul>
-            </Reveal>
-            <Reveal className="feature-visual" delay={0.08}>
-              <div className="feature-backdrop" />
-              <Phone screen={feature.screen} />
-            </Reveal>
-          </div>
+    <section className="stats" aria-label="Shelfie in numbers">
+      <div className="wrap stats-grid">
+        {STATS.map(([value, label], i) => (
+          <Reveal key={label} className="stat" delay={i * 0.06}>
+            <b>{value}</b>
+            <span>{label}</span>
+          </Reveal>
         ))}
       </div>
     </section>
@@ -63,12 +65,12 @@ export function Bento() {
   return (
     <section className="section" id="more">
       <div className="wrap">
-        <SectionHead eyebrow="And more" title="The details that make it yours" />
+        <SectionHead eyebrow="And more" title={<>The details that make it <span className="serif">yours.</span></>} />
         <div className="bento">
           {BENTO.map((item, i) => (
-            <Reveal key={item.id} className={`card bento-card bento-${item.id}`} delay={i * 0.06}>
+            <Reveal key={item.id} className={`bento-card bento-${item.id}`} delay={i * 0.06}>
               <div className="bento-text">
-                <span className="icon-tile small"><item.Icon size={21} /></span>
+                <span className="icon-tile small"><item.Icon size={21} weight="duotone" /></span>
                 <h3>
                   {item.title}
                   {item.pro && <span className="pro">PRO</span>}
@@ -141,65 +143,45 @@ function BentoArt({ item }) {
   );
 }
 
-export function Steps() {
-  return (
-    <section className="section section-tint" id="how">
-      <div className="wrap">
-        <SectionHead eyebrow="How it works" title="From empty shelf to reading streak in three steps" />
-        <ol className="steps">
-          {STEPS.map(({ Icon, title, body }, i) => (
-            <Reveal key={title} as="li" className="card step" delay={i * 0.08}>
-              <span className="step-number">{i + 1}</span>
-              <span className="icon-tile"><Icon size={26} /></span>
-              <h3>{title}</h3>
-              <p>{body}</p>
-            </Reveal>
-          ))}
-        </ol>
-      </div>
-    </section>
-  );
-}
-
 export function Pricing() {
   const prices = useLocalPrices();
   return (
-    <section className="section" id="pricing">
+    <section className="section section-tint" id="pricing">
       <div className="wrap">
         <SectionHead
           eyebrow="Pricing"
-          title="Free to start. Go Pro monthly, or once for life."
+          title={<>Free to start. <span className="serif">Yours for life.</span></>}
           body="The App Store charges in your local currency. Monthly can be cancelled anytime."
         />
         <div className="plans">
           {PLANS.map((plan, i) => {
             const local = plan.priceKey ? prices[plan.priceKey] : plan.price;
             return (
-            <Reveal key={plan.name} className={`card plan ${plan.featured ? 'plan-featured' : ''}`} delay={i * 0.08}>
-              <div className="plan-head">
-                <h3>{plan.name}</h3>
-                {plan.featured && <span className="pill pill-on-dark"><plan.Icon size={15} /> Best value</span>}
-              </div>
-              <div className="plan-price">
-                {local ? (
-                  <b>{local}</b>
-                ) : (
-                  // No confirmed price for this visitor's country: don't guess a number.
-                  <b className="plan-price-text">{plan.fallback[0]}</b>
+              <Reveal key={plan.name} className={`plan ${plan.featured ? 'plan-featured' : ''}`} delay={i * 0.08}>
+                <div className="plan-head">
+                  <h3>{plan.name}</h3>
+                  {plan.featured && <span className="pill pill-on-dark"><plan.Icon size={15} weight="fill" /> Best value</span>}
+                </div>
+                <div className="plan-price">
+                  {local ? (
+                    <b>{local}</b>
+                  ) : (
+                    // No confirmed price for this visitor's country: don't guess a number.
+                    <b className="plan-price-text">{plan.fallback[0]}</b>
+                  )}
+                  <span>{local ? plan.note : plan.fallback[1]}</span>
+                </div>
+                {plan.featured && prices.paybackMonths && (
+                  <span className="plan-save">Pays for itself in {prices.paybackMonths} months of Monthly</span>
                 )}
-                <span>{local ? plan.note : plan.fallback[1]}</span>
-              </div>
-              {plan.featured && prices.paybackMonths && (
-                <span className="plan-save">Pays for itself in {prices.paybackMonths} months of Monthly</span>
-              )}
-              <p>{plan.body}</p>
-              <ul className="checks">
-                {plan.features.map((feature) => (
-                  <li key={feature}><Check size={19} weight="bold" />{feature}</li>
-                ))}
-              </ul>
-              <AppStoreButton variant={plan.featured ? 'orange' : 'dark'} label={plan.cta} />
-            </Reveal>
+                <p>{plan.body}</p>
+                <ul className="checks">
+                  {plan.features.map((feature) => (
+                    <li key={feature}><Check size={16} weight="bold" />{feature}</li>
+                  ))}
+                </ul>
+                <AppStoreButton variant={plan.featured ? 'orange' : 'dark'} label={plan.cta} />
+              </Reveal>
             );
           })}
         </div>
@@ -211,11 +193,11 @@ export function Pricing() {
 export function Faq() {
   const [open, setOpen] = useState(0);
   return (
-    <section className="section section-tint" id="faq">
+    <section className="section" id="faq">
       <div className="wrap faq-wrap">
         <SectionHead
           eyebrow="FAQ"
-          title="Questions, answered"
+          title={<>Questions, <span className="serif">answered.</span></>}
           body={<>More on the <a href="support.html">Support page</a>.</>}
           center={false}
         />
@@ -223,10 +205,10 @@ export function Faq() {
           {FAQS.map(({ q, a }, i) => {
             const isOpen = open === i;
             return (
-              <Reveal key={q} className={`card faq-item ${isOpen ? 'open' : ''}`} delay={i * 0.04}>
+              <Reveal key={q} className={`faq-item ${isOpen ? 'open' : ''}`} delay={i * 0.03}>
                 <button aria-expanded={isOpen} onClick={() => setOpen(isOpen ? -1 : i)}>
                   <span>{q}</span>
-                  <CaretDown size={23} className="faq-chevron" />
+                  <CaretDown size={22} className="faq-chevron" />
                 </button>
                 <AnimatePresence initial={false}>
                   {isOpen && (
@@ -252,16 +234,20 @@ export function Faq() {
 
 export function Cta() {
   return (
-    <section className="section">
+    <section className="section cta-section">
       <div className="wrap">
         <Reveal className="cta">
+          <div className="cta-glow" aria-hidden="true" />
           <div className="cta-copy">
-            <h2>Start your shelf tonight</h2>
+            <img className="cta-icon" src="assets/icon.png" alt="" width="96" height="96" />
+            <h2>Start your shelf <span className="serif">tonight.</span></h2>
             <p>Add the book on your nightstand, read a few pages and watch your first streak begin.</p>
-            <AppStoreButton />
+            <AppStoreButton variant="orange" />
+            <small>Free on the App Store · iPhone and iPad · iOS and iPadOS 26 or later</small>
           </div>
-          <div className="cta-visual" aria-hidden="true">
-            <Bookcase className="cta-bookcase" labels={false} />
+          <div className="cta-phones" aria-hidden="true">
+            <IPhone screen="calendar" className="cta-phone cta-phone-back" />
+            <IPhone screen="book" className="cta-phone cta-phone-front" />
           </div>
         </Reveal>
       </div>
@@ -283,7 +269,8 @@ export function Footer() {
         <div className="footer-cols">
           <div>
             <b>Product</b>
-            <a href="#features">Features</a>
+            <a href="#tour">Tour</a>
+            <a href="#ipad">iPad</a>
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
           </div>
