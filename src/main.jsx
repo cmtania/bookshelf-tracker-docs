@@ -2,10 +2,14 @@ import { StrictMode, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { MotionConfig } from 'motion/react';
 import '@fontsource-variable/plus-jakarta-sans';
+import '@fontsource/instrument-serif/latin-400.css';
+import '@fontsource/instrument-serif/latin-400-italic.css';
 
 import { Hero } from './components/Hero.jsx';
+import { IpadStage } from './components/IpadStage.jsx';
 import { Nav } from './components/Nav.jsx';
-import { Benefits, Bento, Cta, Faq, Features, Footer, Pricing, Steps } from './components/Sections.jsx';
+import { Benefits, Bento, Cta, Faq, Footer, Pricing, Ribbon, Stats } from './components/Sections.jsx';
+import { Tour } from './components/Tour.jsx';
 import { startSmoothScroll } from './smooth-scroll.js';
 import './landing.css';
 
@@ -17,10 +21,12 @@ function App() {
       <Nav />
       <main>
         <Hero />
+        <Ribbon />
+        <Tour />
+        <IpadStage />
+        <Stats />
         <Benefits />
-        <Features />
         <Bento />
-        <Steps />
         <Pricing />
         <Faq />
         <Cta />
