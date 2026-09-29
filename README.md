@@ -14,17 +14,16 @@ npm run preview    # serve the built dist/ to check it
 ## What's where
 
 - `index.html` → `src/main.jsx`: the landing page (React). The sections, from top to bottom:
-  - `Nav.jsx`: sticky nav with section links; it turns into a menu on phones.
-  - `Hero.jsx`: headline, App Store button, and a phone with floating streak and pages cards.
-  - `Sections.jsx`:
-    - benefit cards, then feature rows that alternate with phone mockups;
-    - a bento grid: room colors, share your shelf, categories, privacy;
-    - how it works, pricing (Starter free, Pro Monthly, Pro Lifetime) and the FAQ accordion;
-    - the final call to action and the footer.
-  - `Phone.jsx`: the iPhone frame and drawn app screens (shelf, pulled-out book, log reading, calendar).
-  - `Bookcase.jsx`: the bookcase drawing, with the app's real proportions.
-  - `src/config.js`: **all the copy, the App Store URL, screenshot paths, FAQs and prices.**
-  - `src/landing.css`: the layout and look.
+  - `Nav.jsx`: a floating glass nav capsule; it turns into a menu on phones.
+  - `Hero.jsx`: the headline, App Store button, and an iPad + iPhone stage with real screenshots. It tilts into place on scroll and leans toward the cursor.
+  - `Sections.jsx` → `Ribbon`: an endless strip of what's inside.
+  - `Tour.jsx`: the sticky product tour. The phone stays put while four chapters scroll past, and its screen follows the chapter. On phones, each chapter has its own screenshot.
+  - `IpadStage.jsx`: a dark stage with one big iPad and tabs for four iPad screens. It advances every 5 s until the visitor interacts.
+  - `Sections.jsx`: the numbers band, benefits, the bento grid (room colors, sharing, categories, privacy), pricing (Starter, Pro Monthly, Pro Lifetime), the FAQ, the final call to action and the footer.
+  - `Device.jsx`: CSS iPhone and iPad frames around a screenshot. Bezels and corners scale with the frame's width (container query units), and a new screen cross-fades in.
+  - `Bookcase.jsx`: the bookcase drawing, used in the share bento card.
+  - `src/config.js`: **all the copy, the App Store URL, the screenshot list (`SCREENS`), tour chapters, FAQs and prices.**
+  - `src/landing.css`: the layout and look. Warm editorial: cream paper with a light grain, logo orange, cocoa ink, Plus Jakarta Sans, and Instrument Serif italic for accent words.
 - `public/` is copied into the build as-is:
   - `support.html` (FAQs and contact), `privacy.html` and `terms.html`, with their shared `styles.css`;
   - `assets/`: logo, app icon, the self-hosted font, and `screens/` for app screenshots.
@@ -33,15 +32,15 @@ Packages:
 - `motion`: the entrance animations and the FAQ accordion.
 - `lenis`: smooth scrolling.
 - `@phosphor-icons/react`: the icons ([Phosphor](https://phosphoricons.com), MIT), the same set as the app. The static pages use inline Phosphor SVGs, and there are no emoji anywhere.
-- `@fontsource-variable/plus-jakarta-sans`: the font, self-hosted, so no Google Fonts requests.
+- `@fontsource-variable/plus-jakarta-sans` and `@fontsource/instrument-serif`: the fonts, self-hosted, so no Google Fonts requests.
 
-All motion respects the Reduce Motion setting.
+All motion respects the Reduce Motion setting. With it on, the ribbon becomes a static list, the hero stops tilting and leaning, and the iPad stage doesn't auto-advance.
 
-The page layout follows the section structure of the Mubly Framer template (hero, benefits, features, bento, steps, pricing, FAQ, CTA). The design, code and content are original to Shelfie.
+The design, code and content are original to Shelfie.
 
 ## Real app screenshots
 
-Drop iPhone captures into `public/assets/screens/` as `shelf.png`, `book.png`, `log.png` and `calendar.png`. That's the mapping in `SCREENSHOTS` in `src/config.js`. Each phone shows the real screenshot when the file exists, and otherwise a drawn version of the screen.
+The page uses real App Store captures from `bookshelf-tracker/appstore/raw/`, resized for the web into `public/assets/screens/`. They're JPEGs, `iphone-*.jpg` at 720 px wide and `ipad-*.jpg` at 1400 px wide, about 1 MB for the whole set. The list, with alt text for each one, is `SCREENS` in `src/config.js`. To swap a screenshot, replace the JPEG with the same name, or add an entry and point a tour chapter or iPad tab at it.
 
 ## Deploy (one-time setup)
 
