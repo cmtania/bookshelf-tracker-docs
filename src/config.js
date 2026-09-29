@@ -1,15 +1,18 @@
 import {
   BellRinging,
-  BookOpen,
+  Books,
+  CalendarDots,
+  DeviceMobile,
+  DeviceTablet,
   EyeSlash,
+  Export,
   Flame,
-  SquaresFour,
   LockKey,
+  MagnifyingGlassPlus,
   NotePencil,
   PaintBrush,
-  Export,
-  DeviceMobile,
   Sparkle,
+  SquaresFour,
   Timer,
   WifiSlash,
 } from '@phosphor-icons/react';
@@ -20,20 +23,91 @@ export const APP_STORE_URL = 'https://apps.apple.com/app/shelfie/id0000000000';
 export const SUPPORT_NAME = 'Christian Tania';
 export const SUPPORT_EMAIL = 'tania.dev.ph@gmail.com';
 
-// Real app screenshots (iPhone captures) go in public/assets/screens/. Until a file exists
-// (or if it fails to load), the phone shows a drawn version of that screen instead.
-export const SCREENSHOTS = {
-  shelf: 'assets/screens/shelf.png',
-  book: 'assets/screens/book.png',
-  log: 'assets/screens/log.png',
-  calendar: 'assets/screens/calendar.png',
+// Real app screenshots, resized for the web from the App Store captures (bookshelf-tracker/appstore/raw).
+// iPhone: 720 px wide (6.9" captures). iPad: 1400 px wide (13" captures).
+export const SCREENS = {
+  book: { src: 'assets/screens/iphone-book.jpg', alt: 'A book pulled off the 3D shelf, turned to show its cover, with Log reading and Edit buttons' },
+  calendar: { src: 'assets/screens/iphone-calendar.jpg', alt: 'The Calendar tab: pages this month, the current streak and a dot on each day you read' },
+  share: { src: 'assets/screens/iphone-share.jpg', alt: 'The Share your shelf sheet with a picture of the bookcase' },
+  room: { src: 'assets/screens/iphone-room.jpg', alt: 'Room colors open over the 3D room, choosing the Gallery boxes design' },
+  shelf: { src: 'assets/screens/iphone-shelf.jpg', alt: 'The 3D bookcase in a room with three named shelves' },
+  pro: { src: 'assets/screens/iphone-pro.jpg', alt: 'The Shelfie Pro screen with Lifetime and Monthly plans' },
+  ipadFloor: { src: 'assets/screens/ipad-floor.jpg', alt: 'Shelfie on iPad: the Tree bookcase on an oak herringbone floor, with the Room colors panel beside it' },
+  ipadDesigns: { src: 'assets/screens/ipad-designs.jpg', alt: 'Shelfie on iPad: choosing a bookcase design from a grid of seven' },
+  ipadCalendar: { src: 'assets/screens/ipad-calendar.jpg', alt: 'Shelfie on iPad: the reading calendar for the month' },
+  ipadBook: { src: 'assets/screens/ipad-book.jpg', alt: 'Shelfie on iPad: a book pulled out of the shelf, showing its cover' },
 };
 
 export const NAV = [
-  ['Features', 'features'],
-  ['How it works', 'how'],
+  ['Tour', 'tour'],
+  ['iPad', 'ipad'],
   ['Pricing', 'pricing'],
   ['FAQ', 'faq'],
+];
+
+// The ribbon under the hero. Short, noun-first.
+export const RIBBON = [
+  [Books, 'A real 3D bookshelf'],
+  [Flame, 'A streak for every book'],
+  [NotePencil, 'Notes by the page'],
+  [CalendarDots, 'Reading calendar'],
+  [SquaresFour, '7 bookcase designs'],
+  [PaintBrush, 'Room colors'],
+  [MagnifyingGlassPlus, 'Pinch to zoom'],
+  [DeviceTablet, 'Made for iPad'],
+  [LockKey, 'No account'],
+];
+
+// The sticky product tour: the phone stays in place and its screen changes per chapter.
+export const TOUR = [
+  {
+    id: 'pull',
+    screen: 'book',
+    kicker: 'Pick it up',
+    title: 'Pull a book off the shelf.',
+    body: 'Tap a spine and it slides out with a soft sound, turns to face you, and shows your page and streak. Log reading right there, then tap away and it slides back into place.',
+    points: ['Thickness follows the page count', 'Drag to turn the book around', 'Pinch to zoom into any shelf'],
+  },
+  {
+    id: 'streak',
+    screen: 'calendar',
+    kicker: 'Keep going',
+    title: 'A streak for every book.',
+    body: 'Every session lands on the calendar in its spine color. See your week at a glance, swipe down for the month, and get a little celebration each time you log.',
+    points: ['Per-book, per-shelf and overall streaks', 'A gentle reminder at your time', 'Never nags on days you already read'],
+  },
+  {
+    id: 'room',
+    screen: 'room',
+    kicker: 'Make it yours',
+    title: 'Design the room around your books.',
+    body: 'Seven bookcase designs, from a classic cabinet to a tree. Lacquered and metal finishes, designer walls, herringbone and marble floors. The room changes live as you choose.',
+    points: ['7 bookcase designs', 'Premium finishes and floors', 'Light, Dark or System appearance'],
+    pro: true,
+  },
+  {
+    id: 'share',
+    screen: 'share',
+    kicker: 'Show it off',
+    title: 'Share your shelf.',
+    body: 'Turn your bookcase into a clean picture for Instagram or Messages, with your book count and streak, drawn in your room’s colors.',
+    points: ['One tap from the Bookshelf tab', 'Save to Photos or send anywhere', 'Signed with a small Shelfie credit'],
+  },
+];
+
+// The iPad stage: segmented control over one big iPad.
+export const IPAD_SCREENS = [
+  { id: 'floor', screen: 'ipadFloor', label: 'Room colors' },
+  { id: 'designs', screen: 'ipadDesigns', label: 'Designs' },
+  { id: 'calendar', screen: 'ipadCalendar', label: 'Calendar' },
+  { id: 'book', screen: 'ipadBook', label: 'Pull a book' },
+];
+
+export const STATS = [
+  ['7', 'bookcase designs'],
+  ['10', 'shelves to fill'],
+  ['0', 'accounts to create'],
+  ['100%', 'of your library stays on your device'],
 ];
 
 export const BENEFITS = [
@@ -56,33 +130,6 @@ export const BENEFITS = [
     Icon: NotePencil,
     title: 'Notes by the page',
     body: 'Save quotes and thoughts with the page they came from, right next to your reading sessions.',
-  },
-];
-
-export const FEATURES = [
-  {
-    id: 'shelf',
-    eyebrow: 'Your library',
-    title: 'Every book on a shelf you can actually see',
-    body: 'Your books stand in a real 3D bookcase, one compartment per category. Thick books look thick, the one you’re reading sticks out with a ribbon, and your to-read pile lies flat, just like at home.',
-    points: ['Up to 10 categories, one per compartment', 'Tap a shelf or pinch to zoom in, tap a spine to pull the book out', 'Book thickness follows the page count'],
-    screen: 'shelf',
-  },
-  {
-    id: 'book',
-    eyebrow: 'Pick it up',
-    title: 'Pull a book out and it turns to face you',
-    body: 'Tap a spine and the book slides off the shelf with a soft sound, flies up and shows its cover. Log reading or edit it right there, then tap away and it slides back into its place.',
-    points: ['Page progress and streak at a glance', 'Drag to turn the book around', 'Every logged session gets a little celebration'],
-    screen: 'book',
-  },
-  {
-    id: 'calendar',
-    eyebrow: 'Keep going',
-    title: 'See your week of reading, expand to the month',
-    body: 'The calendar opens on this week, with a colored dot for every book you read each day. Swipe down for the whole month, and tap a day to see exactly what you read.',
-    points: ['Pages this week and your current streak on top', 'One dot per book, in its spine color', 'Every session with pages and minutes'],
-    screen: 'calendar',
   },
 ];
 
@@ -120,24 +167,6 @@ export const BENTO = [
   },
 ];
 
-export const STEPS = [
-  {
-    Icon: SquaresFour,
-    title: 'Name your shelves',
-    body: 'Start with three free categories and rename them to fit how you read: novels, study, comics, anything.',
-  },
-  {
-    Icon: BookOpen,
-    title: 'Add your books',
-    body: 'Title, author and page count. Pick a spine color and the book takes its place on the shelf.',
-  },
-  {
-    Icon: Flame,
-    title: 'Read and log',
-    body: 'Log each session in a few taps. Watch the bookmark move, the streak grow and the calendar fill up.',
-  },
-];
-
 // Shelfie Pro prices per App Store storefront (ISO region code -> ISO currency and amount).
 // Copy these from App Store Connect: each in-app purchase / subscription -> Price Schedule lists
 // every storefront. Visitors whose region isn't listed see words instead of a number, so an
@@ -171,7 +200,7 @@ export const PLANS = [
   },
   {
     name: 'Pro Monthly',
-    // Price filled in per visitor from PRICES.monthly (see useLocalPrice in hooks.js).
+    // Price filled in per visitor from PRICES.monthly (see useLocalPrices in hooks.js).
     priceKey: 'monthly',
     note: 'per month',
     fallback: ['Monthly', 'in your currency'],
@@ -238,3 +267,5 @@ export const FAQS = [
 
 /** Apple-style spring: critically damped (no bounce). */
 export const SPRING = { type: 'spring', bounce: 0, duration: 0.6 };
+/** A softer spring for large surfaces (devices, stage). */
+export const SPRING_SLOW = { type: 'spring', bounce: 0, duration: 1.1 };
